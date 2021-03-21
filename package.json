@@ -1,0 +1,25 @@
+{
+  "name": "vue-theme-manager",
+  "version": "1.0.0",
+  "description": "A vue plugin to manage one or more color themes in your web app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xceldeveloper/vue-theme-manager.git"
+  },
+  "keywords": [
+    "vue",
+    "theme",
+    "theme-manager",
+    "color"
+  ],
+  "author": "xceldeveloper <xceldeveloper@gmail.com> (xceldeveloper.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Xceldeveloper/vue-theme-manager/issues"
+  },
+  "homepage": "https://github.com/Xceldeveloper/vue-theme-manager#readme"
+}
