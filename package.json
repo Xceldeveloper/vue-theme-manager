@@ -1,6 +1,6 @@
 {
   "name": "vue-theme-manager",
-  "version": "1.0.1",
+  "version": "1.1.1",
   "description": "A vue plugin to manage one or more color themes in your web app",
   "main": "index.js",
   "scripts": {
