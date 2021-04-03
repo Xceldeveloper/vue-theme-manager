@@ -17,7 +17,7 @@
    ```javascript
    //main.js
    ...
-   import VueThemeManager from 'vue-theme-manager
+   import VueThemeManager from 'vue-theme-manager'
    ...
    let themeOptions = {
    activate:'light',
@@ -62,7 +62,7 @@ import VueThemeManager from 'vue-theme-manager'
 Vue.use(VueThemeManager,themeOptions);
 ```
 
-```
+```javascript
 //nuxt.config.js
 plugins:{
   ...
@@ -79,7 +79,7 @@ plugins:{
 Plugin accepts `object` during initialization with props [This is Optional]:
 
    ```javascript
-    Vue.use(VueThemeManager,{activate:'',styles{}})
+    Vue.use(VueThemeManager,{activate:,styles})
 ```
 
  1. `activate:'string'`  ---this will be the activated theme when plugin is initialized. Note default theme is `default`[This is optional]
@@ -199,13 +199,20 @@ this.$AppTheme.addTheme({textColor:'red',backgroundColor:'gold','splash',true});
 *themeName = "String" intended name for theme @optional default  is "default"
 *activate = boolean --activate theme or not
 */
-this.$AppTheme.saveTheme(); //save theme to db ..this can be changed like this
+
+this.$AppTheme.saveTheme(); //save theme to db 
+
+//this can also be changed like this
 this.$AppTheme.addTheme(...).saveTheme();
+
+
 
 this.$AppTheme.activateTheme(themeName);
 //where themeName is a `String` which is already contained in the themeOptions
 
-this.$AppTheme.getTheme(array,themeName);
+
+
+this.$AppTheme.getTheme(themeName,array);
 //returns object of themeOptions
 array = themeoptions to be gotten like ['textColor','backgroundColor']
 themeName = name of theme to get options from
