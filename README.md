@@ -38,10 +38,10 @@ Vue.use(VueThemeManager,themeOptions);
 ...
 ```
 
-> #### For Nuxt 2x 
+> #### For Nuxt 
 
 ```javascript    
-//plugin/vue_theme_manager.js
+//plugins/vue_theme_manager.js
 import Vue from 'vue'
 import VueThemeManager from 'vue-theme-manager'
      
@@ -64,19 +64,19 @@ Vue.use(VueThemeManager,themeOptions);
 
 ```javascript
 //nuxt.config.js
-plugins:{
+plugins:[
   ...
 
-  {src:'@plugin/vue_theme_manager',mode:'client'}
+  {src:'@plugins/vue_theme_manager',mode:'client'}
   
   ...
-}
+]
 ```
 
 > 
 
 ## Plugin Options
-Plugin accepts `object` during initialization with props [This is Optional]:
+Plugin accepts `object` or `jsonstring` during initialization with props [This is Optional]:
 
    ```javascript
     Vue.use(VueThemeManager,{activate:,styles})
@@ -88,10 +88,10 @@ Plugin accepts `object` during initialization with props [This is Optional]:
 ## Template Usage
 
 
-> For Vue2x and Vue3
+> For Vue2x and Vue3x
 
  ```HTML
- App.vue <! root app !-->
+ App.vue <!-- root app !-->
  
  <!-- register theme-manager-plugin-globally for all component template  !-->
     <div id="app" :style="VueThemeManager">
@@ -108,7 +108,7 @@ Plugin accepts `object` during initialization with props [This is Optional]:
 > For Nuxt
 
  ```HTML
- /layout/default.vue <! root app !-->
+ /layout/default.vue <!-- root app !-->
  
  <!-- register theme-manager-plugin-globally for all component template  !-->
   <nuxt :style="VueThemeManager" />
@@ -163,13 +163,18 @@ Hello World
      backgroundColor:'#101010'
     }
     */
+    
+    
+    
 // we can still go further
 let themeName = 'light' 
   this.console.log(JSON.stringify(this.$AppTheme.theme[themeName].textColor,null,2))
   //returns '#ededed' 
 
-this.console.log(JSON.stringify(this.$AppTheme.textColor,null,2))
+this.console.log(this.$AppTheme.textColor)
   //returns currently selected theme textColor '#ededed' 
+
+
 
 
 
@@ -179,26 +184,35 @@ this.console.log(JSON.stringify(this.$AppTheme.textColor,null,2))
 */
     this.$AppTheme.onReady((themeExistInDeviceDB)=>{
     if(themeExistInDeviceDB){
-       this.$AppTheme.setThemeFromStorage();
+       this.$AppTheme.setThemeFromStorage();//this is to set theme from db
       }
     });
     
 
 
+
+
 //This will be called when New Theme has been Selected
-this,$AppTheme.onThemeChanged((themeName,themeOptions)=>{
+this.$AppTheme.onThemeChanged((themeName,themeOptions)=>{
 ...
 //do what ever you want with the results
 })
 
 
-this.$AppTheme.addTheme({textColor:'red',backgroundColor:'gold','splash',true});
-//this.$AppTheme.addTheme({options,themeName,activate}})
+
+
+
+this.$AppTheme.addTheme({textColor:'red',backgroundColor:'gold'},"splash",true);
+//this.$AppTheme.addTheme({options},themeName,activate)
+
 /*
 *options = "object" or "json-string" @required
 *themeName = "String" intended name for theme @optional default  is "default"
 *activate = boolean --activate theme or not
 */
+
+
+
 
 this.$AppTheme.saveTheme(); //save theme to db 
 
@@ -212,14 +226,20 @@ this.$AppTheme.activateTheme(themeName);
 
 
 
+
+
 this.$AppTheme.getTheme(themeName,array);
 //returns object of themeOptions
-array = themeoptions to be gotten like ['textColor','backgroundColor']
-themeName = name of theme to get options from
+
+//themeName = name of theme to get options from @required
+array = themeoptions to be gotten like ['textColor','backgroundColor'] @optional
+
 ///generally data can be accessed like this
-this.$AppTheme.getTheme(['textColor'],'splash').texColor 
+this.$AppTheme.getTheme('splash',['textColor']).texColor 
 //result 'red'
 ```
+
+
 
 ## Points to Note
 
