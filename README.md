@@ -114,8 +114,14 @@ Plugin accepts `object` or `jsonstring` during initialization with props [This i
   <nuxt :style="VueThemeManager" />
 ```
 
+
+
+
+> Now use in Any Component Like this Both in Nuxt and Vue Projects
 ```HTML
 anycomponent.vue 
+
+
 <template>
 <div class="wrapper">
 Hello World
@@ -136,7 +142,8 @@ Hello World
 </div>
 </template>
   <style>
-    #app{
+    .wrapper{
+         ...
           background-color:var(--background-color);
           text-color:var(--text-color);
           ...
