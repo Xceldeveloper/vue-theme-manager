@@ -1,6 +1,6 @@
 {
   "name": "vue-theme-manager",
-  "version": "1.1.2",
+  "version": "1.1.3",
   "description": "A vue plugin to manage one or more color themes in your web app",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,8 @@
     "vue",
     "theme",
     "theme-manager",
-    "color"
+    "color",
+    "vue-plugin"
   ],
   "author": "xceldeveloper <xceldeveloper@gmail.com> (xceldeveloper.com)",
   "license": "MIT",
